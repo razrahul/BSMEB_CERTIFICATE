@@ -88,8 +88,8 @@ const Molvi_MarksheetPrint_2018 = () => {
         <div className="arabic tex-dec">{getMarks("Arabic")}</div>
         <div className="social-study tex-dec">{getMarks("Social Study")}</div>
         <div className="hindi tex-dec">{getMarks("Hindi")}</div>
-        <div className="mathematics tex-dec">{getMarks("Mathematics")}</div>
-        <div className="science tex-dec">{getMarks("Science")}</div>
+        {/* <div className="mathematics tex-dec">{getMarks("Mathematics")}</div> */}
+        {/* <div className="science tex-dec">{getMarks("Science")}</div> */}
         <div className="opt tex-dec">{getMarks("Com. Opt. Sub")}</div>
         <div className="aggregate tex-dec">{getMarks("Aggregate")}</div>
 

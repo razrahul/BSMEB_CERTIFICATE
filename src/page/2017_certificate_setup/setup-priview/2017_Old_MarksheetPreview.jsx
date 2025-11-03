@@ -22,6 +22,7 @@ const SUBJECTS_BY_TYPE = {
     "Dinyat paper-2",
     "Dinyat paper-3",
     "Total",
+    "Urdu",
     "Persian",
     "Arabic",
     "Social Study",

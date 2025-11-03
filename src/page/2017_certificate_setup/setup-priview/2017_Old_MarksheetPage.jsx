@@ -50,6 +50,7 @@ const Old_MarksheetPage_2017 = () => {
         "Dinyat paper-2",
         "Dinyat paper-3",
         "Total",
+        "Urdu",
         "Persian",
         "Arabic",
         "Social Study",
