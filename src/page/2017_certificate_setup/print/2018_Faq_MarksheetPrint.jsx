@@ -24,6 +24,8 @@ const Faq_MarksheetPrint_2018 = () => {
     );
   }
 
+  console.log(data)
+
   const { subjectMarks } = data;
 
   // console.log(subjectMarks);
@@ -73,9 +75,11 @@ const Faq_MarksheetPrint_2018 = () => {
         <div className="year">{safeText(data.year)}</div>
         <div className="name tex-dec">{safeText(data.name)}</div>
         <div className="father-name tex-dec">{safeText(data.fatherName)}</div>
+        <div className="mother-name tex-dec">{safeText(data.motherName)}</div>
         <div className="roll-code tex-dec">{safeText(data.code)}</div>
         <div className="roll-no tex-dec">{safeText(data.rollNo)}</div>
         <div className="madrasa tex-dec">{safeText(data.madrasa)}</div>
+        <div className="reg-no tex-dec">{safeText(data?.registrationNumber)}</div>
         <div className="dob tex-dec">{safeText(data.dob)}</div>
 
         {/* 🧠 Subject Marks (mapped to CSS classes) */}
@@ -95,8 +99,12 @@ const Faq_MarksheetPrint_2018 = () => {
         {/* 📊 Result Summary */}
         <div className="status tex-dec">{safeText(data.status)}</div>
         {/* <div className="optional ">{safeText(data.optional)}</div> */}
+        <div className="dated tex-dec">{formatDate(data?.dated)}</div> 
         <div className="date_of_publication">
           {formatDate(data.publicationDate)}
+        </div>
+        <div className="date_of_issue tex-dec">
+          {formatDate(data?.dateOfIssue)}
         </div>
       </div>
     </div>

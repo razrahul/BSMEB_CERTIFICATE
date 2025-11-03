@@ -50,6 +50,17 @@
     top: 5.25cm;     // 23.5rem → 9.94cm
     left: 6.88cm;    // 17rem → 7.18cm
   }
+  .mother-name {
+    position: absolute;
+    top: 5.95cm;     // 23.5rem → 9.94cm
+    left: 6.88cm;    // 17rem → 7.18cm
+  }
+
+  .reg-no {
+    position: absolute;
+    top: 7.85cm;     // 23.5rem → 9.94cm
+    left: 6cm;    // 17rem → 7.18cm
+  }
 
   .roll-code {
     position: absolute;
@@ -169,6 +180,18 @@
     position: absolute;
     top: 16.55cm;    // 29.6rem
     left: 14.25cm;   // 38.1rem
+  }
+
+  .dated {
+    position: absolute;
+    top: 0.7cm;    // 29.6rem
+    left: 14.8cm;   // 38.1rem
+  }
+
+  .date_of_issue {
+    position: absolute;
+    top: 19.15cm;
+    left: 4.65cm;
   }
 
   .optional {

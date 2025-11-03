@@ -2,16 +2,28 @@ import { useMemo, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./2017_Old_Marksheetpage.scss";
 
+/** Type constants — keep these exact strings */
+const TYPE_FAQ_MS = "2018-22-faqunia-Marksheet";
+const TYPE_MOLVI_MS = "2018-22-molvi-Marksheet";
+const TYPE_FAQ_CERT = "2018-22-faqunia-certificate";
+const TYPE_MOLVI_CERT = "2018-22-molvi-certificate";
+
+/** Helpers */
+const norm = (s = "") => s.toLowerCase();
+const isMarksheet = (t) => /-marksheet$/i.test(t || "");
+
 const Old_MarksheetPage_2017 = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [selectedType, setSelectedType] = useState("2018-22-faqunia-certificate");
+  const [selectedType, setSelectedType] = useState(TYPE_FAQ_CERT);
 
   // 🧑 Student Info
   const [studentInfo, setStudentInfo] = useState({
     name: "Arman Ali",
     fatherName: "Ashfaq Ali",
+    motherName: "Alian Khan", // only for marksheets
+    registrationNumber: "reg-104582",
     dob: "15-05-2020 (Fifteen May Twenty-twenty)",
     code: "MOT",
     rollNo: "2125",
@@ -23,12 +35,15 @@ const Old_MarksheetPage_2017 = () => {
   const [resultInfo, setResultInfo] = useState({
     status: "1st",
     optional: "English",
-    publicationDate: "2024-07-01",
+    dated: "2025-11-05",       // shown for all
+    dateOfIssue: "2024-07-02", // shown for all
+    publicationDate: "2023-07-03", // only for marksheets
   });
 
-  // 📚 Subject List based on selectedType
+  // 📚 Subject List
   const subjectsList = useMemo(() => {
-    if (selectedType === "2018-22-faqunia-Marksheet") {
+    const t = selectedType;
+    if (t === TYPE_FAQ_MS) {
       return [
         "Dinyat paper-1",
         "Dinyat paper-2",
@@ -44,7 +59,7 @@ const Old_MarksheetPage_2017 = () => {
         "Aggregate",
       ];
     }
-    if (selectedType === "2018-22-molvi-Marksheet") {
+    if (t === TYPE_MOLVI_MS) {
       return [
         "Dinyat paper-1",
         "Dinyat paper-2",
@@ -64,55 +79,62 @@ const Old_MarksheetPage_2017 = () => {
 
   const [subjectMarks, setSubjectMarks] = useState({});
 
-  // 🧩 Rehydrate state (Preview → Back) or sessionStorage
+  // 🔁 Restore from preview (route state) or sessionStorage (refresh/back)
   useEffect(() => {
     if (location.state?.__fromPreview) {
-      const incoming = location.state;
-      if (incoming.examType) setSelectedType(incoming.examType);
+      const d = location.state;
+
+      if (d.examType) setSelectedType(d.examType);
 
       setStudentInfo((prev) => ({
         ...prev,
-        name: incoming.name ?? prev.name,
-        fatherName: incoming.fatherName ?? prev.fatherName,
-        dob: incoming.dob ?? prev.dob,
-        code: incoming.code ?? prev.code,
-        rollNo: incoming.rollNo ?? prev.rollNo,
-        madrasa: incoming.madrasa ?? prev.madrasa,
-        year: incoming.year ?? prev.year,
+        name: d.name ?? prev.name,
+        fatherName: d.fatherName ?? prev.fatherName,
+        motherName: d.motherName ?? prev.motherName,
+        registrationNumber: d.registrationNumber ?? prev.registrationNumber,
+        dob: d.dob ?? prev.dob,
+        code: d.code ?? prev.code,
+        rollNo: d.rollNo ?? prev.rollNo,
+        madrasa: d.madrasa ?? prev.madrasa,
+        year: d.year ?? prev.year,
       }));
 
       setResultInfo((prev) => ({
         ...prev,
-        status: incoming.status ?? prev.status,
-        optional: incoming.optional ?? prev.optional,
-        publicationDate: incoming.publicationDate ?? prev.publicationDate,
+        status: d.status ?? prev.status,
+        optional: d.optional ?? prev.optional,
+        dated: d.dated ?? prev.dated,
+        dateOfIssue: d.dateOfIssue ?? d.publicationDate ?? prev.dateOfIssue,
+        publicationDate: d.publicationDate ?? prev.publicationDate,
       }));
 
-      if (incoming.subjectMarks) setSubjectMarks(incoming.subjectMarks);
+      if (d.subjectMarks) setSubjectMarks(d.subjectMarks);
 
+      // clean route state
       navigate(".", { replace: true, state: null });
       return;
     }
 
+    // sessionStorage fallback
     const saved = sessionStorage.getItem("old2017_form");
     if (saved) {
       try {
         const s = JSON.parse(saved);
         if (s.selectedType) setSelectedType(s.selectedType);
-        if (s.studentInfo) setStudentInfo(s.studentInfo);
-        if (s.resultInfo) setResultInfo(s.resultInfo);
+        if (s.studentInfo) setStudentInfo((prev) => ({ ...prev, ...s.studentInfo }));
+        if (s.resultInfo) setResultInfo((prev) => ({ ...prev, ...s.resultInfo }));
         if (s.subjectMarks) setSubjectMarks(s.subjectMarks);
       } catch {}
     }
   }, []);
 
-  // 💾 Autosave to sessionStorage
+  // 💾 Autosave
   useEffect(() => {
     const payload = { selectedType, studentInfo, resultInfo, subjectMarks };
     sessionStorage.setItem("old2017_form", JSON.stringify(payload));
   }, [selectedType, studentInfo, resultInfo, subjectMarks]);
 
-  // 🧾 Default marks auto-fill on tab change
+  // 🧾 Default marks for selected tab (preserve existing when switching back)
   useEffect(() => {
     if (subjectsList.length === 0) {
       setSubjectMarks({});
@@ -123,6 +145,7 @@ const Old_MarksheetPage_2017 = () => {
       init[s] = subjectMarks[s] ?? 60 + i * 5;
     });
     setSubjectMarks(init);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subjectsList]);
 
   const handleInfoChange = (e) => {
@@ -140,6 +163,8 @@ const Old_MarksheetPage_2017 = () => {
   };
 
   const handlePreview = () => {
+    // Debug (optional)
+    // console.log("Selected Type before navigate:", selectedType);
     navigate("/old-certificate-2017-preview", {
       state: {
         examType: selectedType,
@@ -150,16 +175,13 @@ const Old_MarksheetPage_2017 = () => {
     });
   };
 
+  const marksheetActive = isMarksheet(selectedType);
+
   return (
     <div className="page">
       {/* Tabs */}
       <div className="tabs">
-        {[
-          "2018-22-faqunia-Marksheet",
-          "2018-22-molvi-Marksheet",
-          "2018-22-faqunia-certificate",
-          "2018-22-molvi-certificate",
-        ].map((type) => {
+        {[TYPE_FAQ_MS, TYPE_MOLVI_MS, TYPE_FAQ_CERT, TYPE_MOLVI_CERT].map((type) => {
           const displayText = type
             .replace(/-/g, " ")
             .replace(/\b\w/g, (char) => char.toUpperCase());
@@ -179,23 +201,52 @@ const Old_MarksheetPage_2017 = () => {
         {/* 🧑 Student Info */}
         <div className="section">
           <h3>🧑 Student Information</h3>
-          {Object.entries(studentInfo).map(([key, value]) => (
+
+          {["name", "fatherName", "dob", "code", "rollNo", "madrasa", "year"].map((key) => (
             <div key={key} className="input-group">
               <label htmlFor={key}>
                 {key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase())} :-
               </label>
-              <input id={key} name={key} value={value} type="text" onChange={handleInfoChange} />
+              <input id={key} name={key} value={studentInfo[key]} type="text" onChange={handleInfoChange} />
             </div>
           ))}
+
+          {marksheetActive && (
+            <>
+              <div className="input-group">
+                <label htmlFor="motherName">Mother Name :-</label>
+                <input
+                  id="motherName"
+                  name="motherName"
+                  value={studentInfo.motherName}
+                  type="text"
+                  onChange={handleInfoChange}
+                />
+              </div>
+
+              <div className="input-group">
+                <label htmlFor="registrationNumber">Registration Number :-</label>
+                <input
+                  id="registrationNumber"
+                  name="registrationNumber"
+                  value={studentInfo.registrationNumber}
+                  type="text"
+                  onChange={handleInfoChange}
+                />
+              </div>
+            </>
+          )}
         </div>
 
-        {/* 📊 Result Info */}
+        {/* 📊 Result Summary */}
         <div className="section">
           <h3>📊 Result Summary</h3>
+
           <div className="input-group">
             <label>Exam Type :-</label>
             <input type="text" value={selectedType} readOnly />
           </div>
+
           <div className="input-group">
             <label>Status :-</label>
             <select name="status" value={resultInfo.status} onChange={handleResultChange}>
@@ -205,17 +256,44 @@ const Old_MarksheetPage_2017 = () => {
               <option value="fail">Fail</option>
             </select>
           </div>
-          {["optional", "publicationDate"].map((key) => (
-            <div key={key} className="input-group">
-              <label>{key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase())} :-</label>
+
+          {/* Dated (all) */}
+          <div className="input-group">
+            <label htmlFor="dated">Dated :-</label>
+            <input
+              id="dated"
+              name="dated"
+              type="date"
+              value={resultInfo.dated}
+              onChange={handleResultChange}
+            />
+          </div>
+
+          {/* Date of Issue (all) */}
+          <div className="input-group">
+            <label htmlFor="dateOfIssue">Date of Issue :-</label>
+            <input
+              id="dateOfIssue"
+              name="dateOfIssue"
+              type="date"
+              value={resultInfo.dateOfIssue}
+              onChange={handleResultChange}
+            />
+          </div>
+
+          {/* Date of Publication (only for marksheet) */}
+          {marksheetActive && (
+            <div className="input-group">
+              <label htmlFor="publicationDate">Date of Publication :-</label>
               <input
-                name={key}
-                value={resultInfo[key]}
-                type={key === "publicationDate" ? "date" : "text"}
+                id="publicationDate"
+                name="publicationDate"
+                type="date"
+                value={resultInfo.publicationDate}
                 onChange={handleResultChange}
               />
             </div>
-          ))}
+          )}
         </div>
 
         {/* 📚 Subject Marks */}
