@@ -17,13 +17,31 @@ import Old_MarksheetPreview from './page/Old_Marksheet/Old_MarksheetPreview';
 import Old_Faq_MarksheetPrint from './page/Old_MarksheetPrint/Old_Faq_MarksheetPrint';
 import Old_Molvi_MarksheetPrint from './page/Old_MarksheetPrint/Old_Molvi_MarksheetPrint';
 
+//2017 Certificate
+import Old_MarksheetPage_2017 from './page/2017_certificate_setup/setup-priview/2017_Old_MarksheetPage';
+import Old_MarksheetPreview_2017 from './page/2017_certificate_setup/setup-priview/2017_Old_MarksheetPreview';
+import Faq_CertificatePrint_2018 from './page/2017_certificate_setup/print/2018_Faq_CertificatePrint';
+import Moluvi_CertificatePrint_2018 from "./page/2017_certificate_setup/print/2018_Molvi_CertificatePrint";
+import Faq_MarksheetPrint_2018 from "./page/2017_certificate_setup/print/2018_Faq_MarksheetPrint";
+import Molvi_MarksheetPrint_2018 from "./page/2017_certificate_setup/print/2018_Molvi_MarksheetPrint";
+
 import './App.css';
 
 function App() {
   const location = useLocation();
 
   // Check if we are on the certificate preview page
-  const isPreviewPage = ['/certificate-preview', '/molvi-art-print','/molvi-sci-print','/molvi-islamic-print','/old-faq-certificate-print','/old-molvi-certificate-print'].includes(location.pathname);
+  const isPreviewPage = ['/certificate-preview', 
+    '/molvi-art-print',
+    '/molvi-sci-print',
+    '/molvi-islamic-print',
+    '/old-faq-certificate-print',
+    '/old-molvi-certificate-print',
+    '/faq-certificate-print-2018',
+    '/molvi-certificate-print-2018',
+    '/faq-marksheet-print-2018',
+    '/molvi-marksheet-print-2018'
+  ].includes(location.pathname);
 
 
   return (
@@ -46,6 +64,14 @@ function App() {
             <Route path="/old-certificate-preview" element={<Old_MarksheetPreview />} />
             <Route path="/old-faq-certificate-print" element={<Old_Faq_MarksheetPrint />} />
             <Route path="/old-molvi-certificate-print" element={<Old_Molvi_MarksheetPrint />} />
+
+            //2017 Certicate ---
+            <Route path="/old-certificate-2017" element={<Old_MarksheetPage_2017 />} />
+            <Route path="/old-certificate-2017-preview" element={<Old_MarksheetPreview_2017 />} />
+            <Route path="/faq-certificate-print-2018" element={<Faq_CertificatePrint_2018 />} />
+            <Route path="/molvi-certificate-print-2018" element={<Moluvi_CertificatePrint_2018 />} />
+            <Route path="/faq-marksheet-print-2018" element={<Faq_MarksheetPrint_2018 />} />
+            <Route path="/molvi-marksheet-print-2018" element={<Molvi_MarksheetPrint_2018 />} />
           </Routes>
         </div>
       </div>

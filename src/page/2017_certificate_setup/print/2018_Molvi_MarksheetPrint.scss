@@ -1,0 +1,405 @@
+:root {
+  font-size: 16px;
+}
+
+.Molvi_MarksheetPrint_wrapper_2018 {
+  position: relative;
+  width: 19cm;      // ✅ Actual paper width
+  height: 25.4cm;   // ✅ Actual paper height
+  margin: 0 auto;
+
+  .pdf-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.Molvi_MarksheetPrint_2018 {
+  position: relative;
+  width: 19cm;
+  height: 25.4cm;
+  margin: 0 auto;
+  font-family: 'Times New Roman', serif;
+  color: #000;
+  overflow: hidden;
+  box-sizing: border-box;
+  page-break-after: avoid;
+
+  // Generic text
+  .tex-dec {
+    // margin-bottom: 2100cm;
+    font-weight: bold;
+    font-size: 11pt;   // standard print font
+  }
+
+  .tex-dec1 {
+    font-weight: bold;
+    font-size: 8pt;
+  }
+
+  // Student Info
+  .name {
+    position: absolute;
+    top: 4.6cm;     // 20.4rem → 8.63cm
+    left: 6.88cm;    // 21rem → 8.88cm
+  }
+
+  .father-name {
+    position: absolute;
+    top: 5.25cm;     // 23.5rem → 9.94cm
+    left: 6.88cm;    // 17rem → 7.18cm
+  }
+
+  .roll-code {
+    position: absolute;
+    top: 7.85cm;     // 23.5rem
+    left: 11cm;   // 34.5rem → 14.59cm
+  }
+
+  .roll-no {
+    position: absolute;
+    top: 7.85cm;     // 23.5rem
+    left: 15.32cm;   // 43.3rem → 18.32cm
+  }
+
+  .dob {
+    position: absolute;
+    top: 8.45cm;    // 26.5rem
+    left: 4.55cm;    // 15rem
+  }
+
+   .date_of_publication {
+    position: absolute;
+    top: 8.45cm;    // 62.7rem
+    left: 12.21cm;    // 17.5rem
+    font-weight: bold;
+    font-size: 12pt;
+  }
+
+  .madrasa {
+    position: absolute;
+    top: 6.64cm;    // 32.7rem
+    left: 5.81cm;    // 15rem
+  }
+
+  .year {
+    position: absolute;
+    top: 3.25cm;     // 35.7rem
+    left: 15.16cm;    // 15rem
+    font-weight: bold;
+    font-size: 12pt;
+  }
+
+  //Subject Marks
+  .diniyat1 {
+    position: absolute;
+    top: 10.15cm;    // 29.6rem
+    left: 11cm;
+  }
+  .diniyat2 {
+    position: absolute;
+    top: 10.75cm;    // 29.6rem
+    left: 11cm;
+  }
+  .diniyat3 {
+    position: absolute;
+    top: 11.4cm;    // 29.6rem
+    left: 11cm;
+  }
+  .total {
+    position: absolute;
+    top: 12.1cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  .urdu {
+    position: absolute;
+    top: 12cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  .persian {
+    position: absolute;
+    top: 12.6cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  .arabic {
+    position: absolute;
+    top: 13.2cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  .social-study {
+    position: absolute;
+    top: 13.85cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  .hindi {
+    position: absolute;
+    top: 14.45cm;    // 29.6rem
+    left: 11cm;
+  }
+  
+  .mathematics {
+    position: absolute;
+    top: 15.05cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  .science {
+    position: absolute;
+    top: 15.68cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  .opt {
+    position: absolute;
+    top: 16.25cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  .aggregate {
+    position: absolute;
+    top: 16.88cm;    // 29.6rem
+    left: 11cm;
+  }
+
+  
+
+  // Result Summary
+  .status {
+    position: absolute;
+    top: 16.55cm;    // 29.6rem
+    left: 14.25cm;   // 38.1rem
+  }
+
+  .optional {
+    position: absolute;
+    top: 20.41cm;    // 53rem
+    left: 11.5cm;    // 30rem
+    font-size: 12pt;
+    font-weight: bold;
+  }
+
+ 
+
+  // Preview / Button (optional)
+  .preview-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 12pt;
+    cursor: pointer;
+  }
+}
+
+@media print {
+  html, body {
+    font-size: 16px !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .pdf-bg {
+    display: none !important;
+  }
+
+  @page {
+    size: 19cm 25.4cm;   // ✅ exact paper size
+    margin: 0;
+  }
+
+  .Old_Faq_MarksheetPrint {
+    width: 19cm;
+    height: 25.4cm;
+    /* ✅ Offset fix */
+    top: -2cm;      // ऊपर खींचे
+    left: -0.5cm;     // बाएँ खींचे
+    transform: none !important;
+    transform-origin: top left;
+    background-image: none !important;
+    box-shadow: none;
+  }
+}
+
+
+
+
+// :root {
+//   font-size: 16px;
+// }
+
+// .Old_Faq_MarksheetPrint-wrapper {
+//   position: relative;
+//   width: 21.2cm;
+//   height: 29cm;
+//   margin: 0 auto;
+
+//   .pdf-bg {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   // z-index: 0;
+//   }
+// }
+
+
+
+
+// .Old_Faq_MarksheetPrint {
+//   position: relative;
+//   width: 21.2cm; // A4 width at 96dpi
+//   height: 29cm; // A4 height at 96dpi
+//   margin: 0 auto;
+//     // background-image: url("../../assets/faq-marksheet.jpg");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   font-family: 'Times New Roman', serif;
+//   color: #000;
+//   overflow: hidden;
+//   box-sizing: border-box;
+//   page-break-after: avoid;
+
+
+
+
+//   //ms no & yaer
+    
+//     // .year {
+//     // top: 19.8rem;
+//     // right: 9.5rem;
+//     // font-size: 1.4rem;
+//     // font-weight: bold;
+//     // position: absolute;
+//     // }
+
+//     // Personal Info
+//     .tex-dec {
+//     font-weight: bold;
+//     font-size: 1rem;
+//     }
+//     .tex-dec1 {
+//     font-weight: bold;
+//     font-size: 0.9rem;
+//     }
+//    .name {
+//     top: 20.4rem;
+//     left: 21rem;
+//     position: absolute;
+//   }
+
+//   .father-name {
+//     top: 23.5rem;
+//     left: 17rem;
+//     position: absolute;
+//   }
+
+  
+
+//   .roll-code {
+//     top: 23.5rem;
+//     left: 34.5rem;
+//     position: absolute;
+//   }
+
+//   .roll-no {
+//     top: 23.5rem;
+//     left: 43.3rem;
+//     position: absolute;
+//   }
+
+  
+//   .dob {
+//     top: 26.5rem;
+//     left: 15rem;
+//     position: absolute;
+//   }
+  
+//   .madrasa {
+//     top: 32.7rem;
+//     left: 15rem;
+//     position: absolute;
+//   }
+
+//   .year{
+//     top: 35.7rem;
+//     left: 15rem;
+//     position: absolute;
+//     font-weight: bold;
+//     font-size: 1.1rem;
+//   }
+
+//     // Result Summary 
+//   .status {
+//     top: 29.6rem;
+//     left: 38.1rem;
+//     position: absolute;
+//   }
+
+//   .optional {
+//     top: 53rem;
+//     left: 30rem;
+//     font-size: 1.1rem;
+//     font-weight: bold;
+//     position: absolute;
+//   }
+
+  
+
+//   .date_of_publication {
+//     top: 62.7rem;
+//     left: 17.5rem; 
+//     font-weight: bold;
+//     font-size: 1.1rem;
+//     position: absolute;
+//   }
+
+
+//     // Preview Button (optional if used)
+//     .preview-btn {
+//     display: block;
+//     margin: 20px auto;
+//     padding: 10px 20px;
+//     font-size: 16px;
+//     cursor: pointer;
+//     }
+
+
+// }
+
+
+
+// @media print {
+//   html, body {
+//     font-size: 16px !important; // 👈 Force 1rem = 1px in print too
+//     margin: 0;
+//     padding: 0;
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+//   }
+//   .pdf-bg {
+//     display: none !important;
+//   }
+
+//     @page {
+//     size: 21.2cm 29cm; // ⬅️ exact match with container
+//     margin: 0;
+//   }
+
+ 
+//   .Old_Faq_MarksheetPrint{
+//     width: 21.2cm;
+//     height: 29cm;
+//     transform: none !important;
+//     transform-origin: top left;
+//     background-image: none !important; // optional if printing without background
+//     box-shadow: none;
+//   }
+// }

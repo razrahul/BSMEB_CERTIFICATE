@@ -13,6 +13,7 @@ const Navbar = () => {
         <Link to="/certificate">Marksheet-Faq</Link>
         <Link to="/new-marksheet">New-Marksheet</Link>
         <Link to="/old-certificate">Old-Certificate</Link>
+        <Link to="/old-certificate-2017">Old-Certificate-2017</Link>
       </nav>
     </div>
   );

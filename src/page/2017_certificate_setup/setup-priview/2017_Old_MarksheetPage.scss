@@ -1,0 +1,262 @@
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 0.5rem 0.5rem 0.5rem;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+  box-sizing: border-box;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* NEW: better on small screens */
+  gap: 0.75rem;
+  /* NEW: tighter spacing */
+  margin-bottom: 2rem;
+
+  .tab {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    /* UPDATED: smoother */
+    border: 2px solid #ccc;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    /* UPDATED */
+
+    &:hover {
+      transform: translateY(-1px);
+      /* NEW */
+      border-color: #e5e7eb;
+      /* NEW */
+    }
+
+    &.active {
+      background-color: #2e8b57;
+      border-color: #2e8b57;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      /* NEW */
+    }
+
+    &:nth-child(2).active {
+      background-color: #1e3a8a;
+      border-color: #1e3a8a;
+    }
+
+    &:nth-child(3).active {
+      background-color: #6b21a8;
+      border-color: #6b21a8;
+    }
+
+    &:nth-child(4).active {
+      /* NEW: 4th tab color */
+      background-color: #b45309;
+      border-color: #b45309;
+    }
+  }
+}
+
+.container-old-2017 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+
+  .section {
+    flex: 1 1 320px;
+    max-width: 420px;
+    /* UPDATED: thoda wide */
+    background: rgba(255, 255, 255, 0.06);
+    /* UPDATED */
+    padding: 0rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 12px;
+    /* UPDATED */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* UPDATED */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    /* UPDATED */
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    /* UPDATED */
+
+    h3 {
+      margin-bottom: 0.9rem;
+      /* UPDATED */
+      padding-bottom: 0.45rem;
+      /* UPDATED */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      /* UPDATED */
+      font-size: 1.2rem;
+      color: #ffffff;
+      letter-spacing: 0.2px;
+      /* NEW */
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+
+      label {
+        font-weight: 600;
+        color: #fff;
+        font-size: 1rem;
+      }
+
+      input,
+      select {
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: 1px solid #ccc;
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &::placeholder {
+          color: #aaa;
+        }
+
+        &:focus {
+          border-color: #00bcd4;
+          box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.25);
+        }
+
+        &:read-only {
+          opacity: 0.85;
+          cursor: not-allowed;
+          background: rgba(255, 255, 255, 0.08);
+        }
+      }
+
+      /* ✅ Fix: move number input spinner removal outside nested braces */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* ✅ NEW: Select dropdown background black and white text */
+      select {
+        background-color: #000;
+        /* black dropdown */
+        color: #fff;
+
+        /* white text */
+        option {
+          background-color: #000;
+          /* option bg black */
+          color: #fff;
+          /* option text white */
+        }
+      }
+    }
+
+
+    /* NEW: Subjects grid used in JSX (.subjects-grid) */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px 16px;
+      margin-top: 0.25rem;
+    }
+
+    /* Existing legacy .subjects block — keeping for compatibility */
+    &.subjects {
+      .subject-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+
+        label {
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: #ccc;
+        }
+
+        input {
+          background: rgba(0, 0, 0, 0.6);
+          color: white;
+          border: 1px solid #ccc;
+          padding: 0.5rem 1rem;
+          border-radius: 6px;
+          font-size: 1rem;
+        }
+      }
+
+      select {
+        margin-top: 0.3rem;
+      }
+    }
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+
+  .preview-btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0.9rem 2.5rem;
+    border: none;
+    border-radius: 10px;
+    /* UPDATED */
+    font-size: 1.08rem;
+    /* UPDATED */
+    font-weight: 700;
+    /* UPDATED */
+    cursor: pointer;
+    transition: all 0.25s ease;
+    /* UPDATED */
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.25);
+    /* NEW */
+
+    &:hover {
+      background-color: #0097a7;
+      transform: translateY(-1px);
+      /* NEW */
+      box-shadow: 0 10px 22px rgba(0, 151, 167, 0.28);
+      /* NEW */
+    }
+
+    &:active {
+      /* NEW */
+      transform: translateY(0);
+      box-shadow: 0 6px 16px rgba(0, 151, 167, 0.22);
+    }
+  }
+}
+
+/* NEW: small-screen tweaks */
+@media (max-width: 560px) {
+  .tabs {
+    gap: 0.5rem;
+
+    .tab {
+      padding: 0.6rem 0.9rem;
+      font-size: 0.92rem;
+    }
+  }
+
+  .container-old-2017 .section {
+    max-width: 100%;
+  }
+
+  .container-old-2017 .section .subjects-grid {
+    grid-template-columns: 1fr;
+    /* single column on very small screens */
+  }
+}
