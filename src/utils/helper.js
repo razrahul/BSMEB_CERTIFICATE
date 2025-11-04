@@ -41,10 +41,29 @@ import converter from 'number-to-words';
     return `${day}-${month}-${year}`;
   };
 
+ const getResultInfo = (status) => {
+    if (!status) return { statusText: "FAIL", division: "FAIL" };
+
+    // Normalize for case-insensitive matching
+    const s = status.toString().trim().toLowerCase();
+
+    // Division & pass/fail logic
+    if (["1st", "first"].includes(s))
+      return { statusText: "PASS", division: "FIRST" };
+    if (["2nd", "second"].includes(s))
+      return { statusText: "PASS", division: "SECOND" };
+    if (["3rd", "third"].includes(s))
+      return { statusText: "PASS", division: "THIRD" };
+
+    // Default (fail)
+    return { statusText: "FAIL", division: "FAIL" };
+  };
+
 // ✅ Correct export
 export {
   total_Number_Words,
   getDivisionFromMarks,
   getStatusFromMarks,
   formatDate,
+  getResultInfo,
 };

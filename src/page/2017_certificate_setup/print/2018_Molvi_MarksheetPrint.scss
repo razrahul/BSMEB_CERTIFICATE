@@ -30,7 +30,7 @@
   .tex-dec {
     // margin-bottom: 2100cm;
     font-weight: bold;
-    font-size: 11pt;   // standard print font
+    font-size: 10pt;   // standard print font
   }
 
   .tex-dec1 {
@@ -49,6 +49,18 @@
     position: absolute;
     top: 5.25cm;     // 23.5rem → 9.94cm
     left: 6.88cm;    // 17rem → 7.18cm
+  }
+
+  .mother-name {
+    position: absolute;
+    top: 5.95cm;     // 23.5rem → 9.94cm
+    left: 6.88cm;    // 17rem → 7.18cm
+  }
+
+  .reg-no {
+    position: absolute;
+    top: 7.85cm;
+    left: 6cm;
   }
 
   .roll-code {
@@ -143,17 +155,7 @@
     left: 11cm;
   }
   
-  // .mathematics {
-  //   position: absolute;
-  //   top: 15.05cm;    // 29.6rem
-  //   left: 11cm;
-  // }
-
-  // .science {
-  //   position: absolute;
-  //   top: 15.68cm;    // 29.6rem
-  //   left: 11cm;
-  // }
+ 
 
   .opt {
     position: absolute;
@@ -172,10 +174,33 @@
   // Result Summary
   .status {
     position: absolute;
-    top: 16.55cm;    // 29.6rem
-    left: 14.25cm;   // 38.1rem
+    top: 16.75cm;    // 29.6rem
+    left: 14.15cm;   // 38.1rem
   }
 
+  .resicpt_no {
+    position: absolute;
+    top: 1.44cm;    // 29.6rem
+    left: 3cm;   // 38.1rem
+  }
+
+  .dated {
+    position: absolute;
+    top: 0.8cm;    // 29.6rem
+    left: 14.88cm;   // 38.1rem
+  }
+
+  .date_of_issue{
+    position: absolute;
+    top: 19.37cm;
+    left: 5.1cm;
+  }
+
+  .in_word_marks {
+    position: absolute;
+    top: 18cm;
+    left: 4.5cm;
+  }
   .optional {
     position: absolute;
     top: 20.41cm;    // 53rem

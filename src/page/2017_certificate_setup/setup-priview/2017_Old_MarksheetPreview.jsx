@@ -66,9 +66,11 @@ const Old_MarksheetPreview_2017 = () => {
       resultInfo: {
         status: data.status,
         optional: data.optional,
+        resiptNo: data.resiptNo ?? "",
         dated: data.dated,
         dateOfIssue: data.dateOfIssue ?? data.publicationDate,
         publicationDate: data.publicationDate ?? "",
+        inWordMarks: data.inWordMarks ?? "",
       },
       subjectMarks: data.subjectMarks || {},
     };
@@ -125,13 +127,20 @@ const Old_MarksheetPreview_2017 = () => {
           <h3>📊 Result Summary (2017)</h3>
           <p><strong>Exam Type:</strong> {toTitle(data.examType)}</p>
           <p><strong>Status:</strong> {data.status}</p>
-          <p><strong>Optional Subject:</strong> {data.optional}</p>
+          {!isMarksheet(data.examType) && (
+            <p><strong>Optional Subject:</strong> {data?.optional}</p>
+          )}
+          {/* <p><strong>Optional Subject:</strong> {data?.optional}</p> */}
+          <p><strong>Resipt No:</strong> {data.resiptNo || "—"}</p>
 
           <p><strong>Dated:</strong> {data.dated || "—"}</p>
           <p><strong>Date of Issue:</strong> {data.dateOfIssue || data.publicationDate || "—"}</p>
 
           {isMarksheet(data.examType) && (
-            <p><strong>Date of Publication:</strong> {data.publicationDate || "—"}</p>
+            <>
+              <p><strong>Date of Publication:</strong> {data.publicationDate || "—"}</p>
+              <p><strong>InWordMarks:</strong> {data.inWordMarks || "—"}</p>
+            </>
           )}
         </div>
 

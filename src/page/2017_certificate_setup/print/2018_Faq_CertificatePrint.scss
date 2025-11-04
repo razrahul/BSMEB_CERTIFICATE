@@ -30,7 +30,7 @@
   .tex-dec {
     margin-bottom: 2100cm;
     font-weight: bold;
-    font-size: 12pt;   // standard print font
+    font-size: 11pt;   // standard print font
   }
 
   .tex-dec1 {
@@ -41,25 +41,25 @@
   // Student Info
   .name {
     position: absolute;
-    top: 7.71cm;     // 20.4rem → 8.63cm
+    top: 7.73cm;     // 20.4rem → 8.63cm
     left: 8.88cm;    // 21rem → 8.88cm
   }
 
   .father-name {
     position: absolute;
-    top: 8.8cm;     // 23.5rem → 9.94cm
+    top: 8.85cm;     // 23.5rem → 9.94cm
     left: 6.1cm;    // 17rem → 7.18cm
   }
 
   .roll-code {
     position: absolute;
-    top: 8.8cm;     // 23.5rem
+    top: 8.85cm;     // 23.5rem
     left: 11.88cm;   // 34.5rem → 14.59cm
   }
 
   .roll-no {
     position: absolute;
-    top: 8.8cm;     // 23.5rem
+    top: 8.85cm;     // 23.5rem
     left: 15.18cm;   // 43.3rem → 18.32cm
   }
 
@@ -78,9 +78,9 @@
   .year {
     position: absolute;
     top: 13.1cm;     // 35.7rem
-    left: 5.5cm;    // 15rem
+    left: 5.3cm;    // 15rem
     font-weight: bold;
-    font-size: 14pt;
+    font-size: 12pt;
   }
 
   // Result Summary
@@ -88,6 +88,17 @@
     position: absolute;
     top: 11cm;    // 29.6rem
     left: 13cm;   // 38.1rem
+  }
+
+  .resicpt_no {
+    position: absolute;
+    top: 1.82cm;    // 29.6rem
+    left: 2.8cm;   // 47.3rem
+  }
+  .dated {
+    position: absolute;
+    top: 0.85cm;    // 29.6rem
+    left: 14.65cm;   // 47.3rem
   }
 
   .optional {
@@ -100,10 +111,10 @@
 
   .date_of_publication {
     position: absolute;
-    top: 21.75cm;    // 62.7rem
-    left: 6cm;    // 17.5rem
+    top: 21.7cm;    // 62.7rem
+    left: 5.8cm;    // 17.5rem
     font-weight: bold;
-    font-size: 13pt;
+    font-size: 12pt;
   }
 
   // Preview / Button (optional)
@@ -150,176 +161,3 @@
 
 
 
-
-// :root {
-//   font-size: 16px;
-// }
-
-// .Old_Faq_MarksheetPrint-wrapper {
-//   position: relative;
-//   width: 21.2cm;
-//   height: 29cm;
-//   margin: 0 auto;
-
-//   .pdf-bg {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   // z-index: 0;
-//   }
-// }
-
-
-
-
-// .Old_Faq_MarksheetPrint {
-//   position: relative;
-//   width: 21.2cm; // A4 width at 96dpi
-//   height: 29cm; // A4 height at 96dpi
-//   margin: 0 auto;
-//     // background-image: url("../../assets/faq-marksheet.jpg");
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   font-family: 'Times New Roman', serif;
-//   color: #000;
-//   overflow: hidden;
-//   box-sizing: border-box;
-//   page-break-after: avoid;
-
-
-
-
-//   //ms no & yaer
-    
-//     // .year {
-//     // top: 19.8rem;
-//     // right: 9.5rem;
-//     // font-size: 1.4rem;
-//     // font-weight: bold;
-//     // position: absolute;
-//     // }
-
-//     // Personal Info
-//     .tex-dec {
-//     font-weight: bold;
-//     font-size: 1rem;
-//     }
-//     .tex-dec1 {
-//     font-weight: bold;
-//     font-size: 0.9rem;
-//     }
-//    .name {
-//     top: 20.4rem;
-//     left: 21rem;
-//     position: absolute;
-//   }
-
-//   .father-name {
-//     top: 23.5rem;
-//     left: 17rem;
-//     position: absolute;
-//   }
-
-  
-
-//   .roll-code {
-//     top: 23.5rem;
-//     left: 34.5rem;
-//     position: absolute;
-//   }
-
-//   .roll-no {
-//     top: 23.5rem;
-//     left: 43.3rem;
-//     position: absolute;
-//   }
-
-  
-//   .dob {
-//     top: 26.5rem;
-//     left: 15rem;
-//     position: absolute;
-//   }
-  
-//   .madrasa {
-//     top: 32.7rem;
-//     left: 15rem;
-//     position: absolute;
-//   }
-
-//   .year{
-//     top: 35.7rem;
-//     left: 15rem;
-//     position: absolute;
-//     font-weight: bold;
-//     font-size: 1.1rem;
-//   }
-
-//     // Result Summary 
-//   .status {
-//     top: 29.6rem;
-//     left: 38.1rem;
-//     position: absolute;
-//   }
-
-//   .optional {
-//     top: 53rem;
-//     left: 30rem;
-//     font-size: 1.1rem;
-//     font-weight: bold;
-//     position: absolute;
-//   }
-
-  
-
-//   .date_of_publication {
-//     top: 62.7rem;
-//     left: 17.5rem; 
-//     font-weight: bold;
-//     font-size: 1.1rem;
-//     position: absolute;
-//   }
-
-
-//     // Preview Button (optional if used)
-//     .preview-btn {
-//     display: block;
-//     margin: 20px auto;
-//     padding: 10px 20px;
-//     font-size: 16px;
-//     cursor: pointer;
-//     }
-
-
-// }
-
-
-
-// @media print {
-//   html, body {
-//     font-size: 16px !important; // 👈 Force 1rem = 1px in print too
-//     margin: 0;
-//     padding: 0;
-//     width: 100%;
-//     height: 100%;
-//     overflow: hidden;
-//   }
-//   .pdf-bg {
-//     display: none !important;
-//   }
-
-//     @page {
-//     size: 21.2cm 29cm; // ⬅️ exact match with container
-//     margin: 0;
-//   }
-
- 
-//   .Old_Faq_MarksheetPrint{
-//     width: 21.2cm;
-//     height: 29cm;
-//     transform: none !important;
-//     transform-origin: top left;
-//     background-image: none !important; // optional if printing without background
-//     box-shadow: none;
-//   }
-// }

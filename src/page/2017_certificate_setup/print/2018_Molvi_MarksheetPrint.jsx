@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./2018_Molvi_MarksheetPrint.scss";
-import { formatDate } from "../../../utils/helper";
+import { formatDate, getResultInfo } from "../../../utils/helper";
 import { Document, Page, pdfjs } from "react-pdf/dist/esm/entry.vite";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -26,7 +26,7 @@ const Molvi_MarksheetPrint_2018 = () => {
 
   const { subjectMarks } = data;
 
-  console.log(subjectMarks);
+  // console.log(data);
 
   function getMarks(subjectName) {
     // yeh assume karega ki 'subjectMarks' global ya upper scope me declared hai
@@ -76,7 +76,9 @@ const Molvi_MarksheetPrint_2018 = () => {
         <div className="roll-code tex-dec">{safeText(data.code)}</div>
         <div className="roll-no tex-dec">{safeText(data.rollNo)}</div>
         <div className="madrasa tex-dec">{safeText(data.madrasa)}</div>
-        <div className="dob tex-dec">{safeText(data.dob)}</div>
+        {/* <div className="dob tex-dec">{safeText(data.dob)}</div> */}
+        <div className="mother-name tex-dec">{safeText(data.motherName)}</div>
+        <div className="reg-no tex-dec">{safeText(data.registrationNumber)}</div>
 
         {/* 🧠 Subject Marks (mapped to CSS classes) */}
         <div className="diniyat1 tex-dec">{getMarks("Dinyat paper-1")}</div>
@@ -88,17 +90,19 @@ const Molvi_MarksheetPrint_2018 = () => {
         <div className="arabic tex-dec">{getMarks("Arabic")}</div>
         <div className="social-study tex-dec">{getMarks("Social Study")}</div>
         <div className="hindi tex-dec">{getMarks("Hindi")}</div>
-        {/* <div className="mathematics tex-dec">{getMarks("Mathematics")}</div> */}
-        {/* <div className="science tex-dec">{getMarks("Science")}</div> */}
         <div className="opt tex-dec">{getMarks("Com. Opt. Sub")}</div>
         <div className="aggregate tex-dec">{getMarks("Aggregate")}</div>
 
         {/* 📊 Result Summary */}
-        <div className="status tex-dec">{safeText(data.status)}</div>
+        <div className="status tex-dec">{getResultInfo(data.status)?.division}</div>
         {/* <div className="optional ">{safeText(data.optional)}</div> */}
+        <div className="resicpt_no tex-dec">{safeText(data?.resiptNo)}</div>
+        <div className="dated tex-dec">{formatDate(data.dated)}</div>
         <div className="date_of_publication">
           {formatDate(data.publicationDate)}
         </div>
+        <div className="in_word_marks tex-dec">{safeText(data.inWordMarks)}</div>
+        <div className="date_of_issue tex-dec"> {formatDate(data.dateOfIssue)}</div>
       </div>
     </div>
   );

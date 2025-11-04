@@ -29,7 +29,7 @@
   // Generic text
   .tex-dec {
     font-weight: bold;
-    font-size: 12pt;   // standard print font
+    font-size: 11pt;   // standard print font
   }
 
   .tex-dec1 {
@@ -46,25 +46,25 @@
 
   .father-name {
     position: absolute;
-    top: 9.85cm;     // 23.5rem → 9.94cm
+    top: 9.88cm;     // 23.5rem → 9.94cm
     left: 5.8cm;    // 17rem → 7.18cm
   }
 
   .roll-code {
     position: absolute;
-    top: 9.85cm;     // 23.5rem
+    top: 9.88cm;     // 23.5rem
     left: 12.1cm;   // 34.5rem → 14.59cm
   }
 
   .roll-no {
     position: absolute;
-    top: 9.85cm;     // 23.5rem
+    top: 9.88cm;     // 23.5rem
     left: 14.6cm;   // 43.3rem → 18.32cm
   }
 
   .dob {
     position: absolute;
-    top: 10.85cm;    // 26.5rem
+    top: 10.95cm;    // 26.5rem
     left: 5.8cm;    // 15rem
   }
 
@@ -77,9 +77,9 @@
   .year {
     position: absolute;
     top: 13.95cm;     // 35.7rem
-    left: 5.8cm;    // 15rem
+    left: 5.35cm;    // 15rem
     font-weight: bold;
-    font-size: 14pt;
+    font-size: 12pt;
   }
 
   // Result Summary
@@ -87,6 +87,18 @@
     position: absolute;
     top: 11.95cm;    // 29.6rem
     left: 12.75cm;   // 38.1rem
+  }
+
+  .resicpt_no {
+    position: absolute;
+    top: 1.73cm;    // 29.6rem
+    left: 3cm;   // 47.3rem
+  }
+
+  .dated {
+    position: absolute;
+    top: 0.87cm;    // 29.6rem
+    left: 14.88cm;   // 47.3rem
   }
 
   .optional {
@@ -99,10 +111,10 @@
 
   .date_of_publication {
     position: absolute;
-    top: 21.9cm;    // 62.7rem
-    left: 5.8cm;    // 17.5rem
+    top: 21.95cm;    // 62.7rem
+    left: 5.75cm;    // 17.5rem
     font-weight: bold;
-    font-size: 14pt;
+    font-size: 12pt;
   }
 
   // Preview / Button (optional)

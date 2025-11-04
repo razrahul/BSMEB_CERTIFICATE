@@ -30,7 +30,7 @@
   .tex-dec {
     // margin-bottom: 2100cm;
     font-weight: bold;
-    font-size: 11pt;   // standard print font
+    font-size: 10pt;   // standard print font
   }
 
   .tex-dec1 {
@@ -82,7 +82,7 @@
 
    .date_of_publication {
     position: absolute;
-    top: 8.45cm;    // 62.7rem
+    top: 8.38cm;    // 62.7rem
     left: 12.21cm;    // 17.5rem
     font-weight: bold;
     font-size: 12pt;
@@ -176,15 +176,26 @@
   
 
   // Result Summary
+  // .result {
+  //   position: absolute;
+  //   top: 16cm;    // 29.6rem
+  //   left: 12.9cm;   // 38.1rem
+  // }
   .status {
     position: absolute;
     top: 16.55cm;    // 29.6rem
-    left: 14.25cm;   // 38.1rem
+    left: 14.15cm;   // 38.1rem
+  }
+
+  .resicpt_no {
+    position: absolute;
+    top: 1.44cm;    // 29.6rem
+    left: 3cm;   // 38.1rem
   }
 
   .dated {
     position: absolute;
-    top: 0.7cm;    // 29.6rem
+    top: 0.8cm;    // 29.6rem
     left: 14.8cm;   // 38.1rem
   }
 
@@ -192,6 +203,12 @@
     position: absolute;
     top: 19.15cm;
     left: 4.65cm;
+  }
+
+  .in_Word_Marks {
+    position: absolute;
+    top: 17.91cm;
+    left: 4.2cm;
   }
 
   .optional {

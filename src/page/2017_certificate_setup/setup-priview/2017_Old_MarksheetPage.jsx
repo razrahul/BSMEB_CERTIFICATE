@@ -24,7 +24,7 @@ const Old_MarksheetPage_2017 = () => {
     fatherName: "Ashfaq Ali",
     motherName: "Alian Khan", // only for marksheets
     registrationNumber: "reg-104582",
-    dob: "15-05-2020 (Fifteen May Twenty-twenty)",
+    dob: "15-05-2020",
     code: "MOT",
     rollNo: "2125",
     madrasa: "Madrsa Islamia Hanfia Washidganj ara Bhojpur",
@@ -35,9 +35,11 @@ const Old_MarksheetPage_2017 = () => {
   const [resultInfo, setResultInfo] = useState({
     status: "1st",
     optional: "English",
+    resiptNo: "NOV-2025-001",
     dated: "2025-11-05",       // shown for all
     dateOfIssue: "2024-07-02", // shown for all
     publicationDate: "2023-07-03", // only for marksheets
+    inWordMarks: "Eight hundred eighty eight", // only for marksheets
   });
 
   // 📚 Subject List
@@ -104,8 +106,10 @@ const Old_MarksheetPage_2017 = () => {
         status: d.status ?? prev.status,
         optional: d.optional ?? prev.optional,
         dated: d.dated ?? prev.dated,
+        resiptNo: d.resiptNo ?? prev.resiptNo,
         dateOfIssue: d.dateOfIssue ?? d.publicationDate ?? prev.dateOfIssue,
         publicationDate: d.publicationDate ?? prev.publicationDate,
+        inWordMarks: d.inWordMarks ?? prev.inWordMarks,
       }));
 
       if (d.subjectMarks) setSubjectMarks(d.subjectMarks);
@@ -257,6 +261,17 @@ const Old_MarksheetPage_2017 = () => {
             </select>
           </div>
 
+          {/* resiptNo (all) */}
+          <div className="input-group">
+            <label htmlFor="resiptNo">Resipt  No :-</label>
+            <input
+              id="resiptNo"
+              name="resiptNo"
+              type="text"
+              value={resultInfo.resiptNo}
+              onChange={handleResultChange}
+            />
+          </div>
           {/* Dated (all) */}
           <div className="input-group">
             <label htmlFor="dated">Dated :-</label>
@@ -283,16 +298,30 @@ const Old_MarksheetPage_2017 = () => {
 
           {/* Date of Publication (only for marksheet) */}
           {marksheetActive && (
-            <div className="input-group">
-              <label htmlFor="publicationDate">Date of Publication :-</label>
-              <input
-                id="publicationDate"
-                name="publicationDate"
-                type="date"
-                value={resultInfo.publicationDate}
-                onChange={handleResultChange}
-              />
-            </div>
+           <>
+              <div className="input-group">
+                <label htmlFor="publicationDate">Date of Publication :-</label>
+                <input
+                  id="publicationDate"
+                  name="publicationDate"
+                  type="date"
+                  value={resultInfo.publicationDate}
+                  onChange={handleResultChange}
+                />
+              </div>
+              {/* InWordMarks (all types) */}
+              <div className="input-group">
+                <label htmlFor="inWordMarks">InWordMarks :-</label>
+                <input
+                  id="inWordMarks"
+                  name="inWordMarks"
+                  type="text"
+                  placeholder="e.g., One Hundred Twenty (120)"
+                  value={resultInfo.inWordMarks}
+                  onChange={handleResultChange}
+                />
+              </div>
+            </>
           )}
         </div>
 

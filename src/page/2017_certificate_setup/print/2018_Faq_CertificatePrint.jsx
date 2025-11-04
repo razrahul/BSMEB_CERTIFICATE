@@ -57,6 +57,8 @@ const Faq_CertificatePrint_2018 = () => {
 
         {/* 📊 Result Summary */}
         <div className="status tex-dec">{safeText(data.status)}</div>
+        <div className='resicpt_no tex-dec'>{safeText(data?.resiptNo)}</div>
+        <div className="dated tex-dec">{formatDate(data.dated)}</div>
         <div className="optional ">{safeText(data.optional)}</div>
         <div className="date_of_publication">
           {formatDate(data.publicationDate)}

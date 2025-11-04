@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./2018_Faq_MarksheetPrint.scss";
-import { formatDate } from "../../../utils/helper";
+import { formatDate, getResultInfo } from "../../../utils/helper";
 import { Document, Page, pdfjs } from "react-pdf/dist/esm/entry.vite";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -24,7 +24,7 @@ const Faq_MarksheetPrint_2018 = () => {
     );
   }
 
-  console.log(data)
+  // console.log(data)
 
   const { subjectMarks } = data;
 
@@ -97,7 +97,9 @@ const Faq_MarksheetPrint_2018 = () => {
         <div className="aggregate tex-dec">{getMarks("Aggregate")}</div>
 
         {/* 📊 Result Summary */}
-        <div className="status tex-dec">{safeText(data.status)}</div>
+        {/* <div className="result tex-dec">{getResultInfo(data.status)?.statusText}</div> */}
+        <div className="status tex-dec">{getResultInfo(data.status)?.division}</div>
+        <div className="resicpt_no tex-dec">{safeText(data?.resiptNo)}</div>
         {/* <div className="optional ">{safeText(data.optional)}</div> */}
         <div className="dated tex-dec">{formatDate(data?.dated)}</div> 
         <div className="date_of_publication">
@@ -106,6 +108,7 @@ const Faq_MarksheetPrint_2018 = () => {
         <div className="date_of_issue tex-dec">
           {formatDate(data?.dateOfIssue)}
         </div>
+        <div className="in_Word_Marks tex-dec">{safeText(data?.inWordMarks)}</div>
       </div>
     </div>
   );
